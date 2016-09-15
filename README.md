@@ -7,9 +7,6 @@
 
 #Thanks  to
 
-PhotoPicker [1]  
-PhotoView [2]
+[1] PhotoPicker (https://github.com/donglua/PhotoPicker)
 
-
-[1] https://github.com/donglua/PhotoPicker
-[2] https://github.com/chrisbanes/PhotoView
+[2] PhotoView (https://github.com/chrisbanes/PhotoView)
