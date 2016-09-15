@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.xyb.photopicker.SelectPicActivity">
+    tools:context="com.xyb.photopicker.SelectPicActivity"
+    android:background="@color/common_bg">
     <include layout="@layout/view_toolbar"/>
 
     <GridView

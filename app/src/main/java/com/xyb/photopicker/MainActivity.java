@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class MainActivity extends ToolBarActivity {
 

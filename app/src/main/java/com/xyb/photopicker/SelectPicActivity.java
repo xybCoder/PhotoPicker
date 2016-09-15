@@ -1,4 +1,5 @@
 package com.xyb.photopicker;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -46,7 +47,8 @@ public class SelectPicActivity extends ToolBarActivity {
                             .start(SelectPicActivity.this, PhotoPicker.REQUEST_CODE);
                 } else {
                     Bundle bundle = new Bundle();
-                    bundle.putString("imgPath", imgPaths.get(position));
+                    bundle.putStringArrayList("imgPaths",imgPaths);
+                    bundle.putInt("position",position);
                     goToActivityForResult(SelectPicActivity.this, EnlargePicActivity.class, bundle, position);
                 }
 
@@ -60,7 +62,8 @@ public class SelectPicActivity extends ToolBarActivity {
 
     }
 
-    @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == PhotoPicker.REQUEST_CODE) {
             if (data != null) {
@@ -69,6 +72,11 @@ public class SelectPicActivity extends ToolBarActivity {
                 imgPaths.addAll(photos);
                 adapter.notifyDataSetChanged();
             }
+        }
+
+        if (resultCode == RESULT_OK && requestCode >= 0 && requestCode <= 8) {
+                imgPaths.remove(requestCode);
+                adapter.notifyDataSetChanged();
         }
     }
 }
