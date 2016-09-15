@@ -1,13 +1,36 @@
 package com.xyb.photopicker;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+public class MainActivity extends ToolBarActivity {
+
+    @Bind(R.id.btn_select_pic)
+    Button btnSelectPic;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getLayoutResId() {
+        return R.layout.activity_main;
     }
+
+    @Override
+    protected void initView() {
+        toolbar.setTitle("高仿微信朋友圈图片选择");
+
+    }
+
+    @Override
+    protected void setListener() {
+        btnSelectPic.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        goToActivity(this,SelectPicActivity.class,null);
+    }
+
 }
